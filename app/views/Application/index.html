@@ -1,0 +1,51 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+<header id="main">
+    <div class="container">
+        <div class="navbar pull-right">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="@{Application.index}">Home</a></li>
+                <li><a href="@{Rules.index}">Rules</a></li>
+                <li><a href="@{ObservedAlarms.index}">Alarms</a></li>
+                <li><a href="@{Security.logout()}">Logout</a></li>
+            </ul>
+        </div>
+          <span class="second-name">Retention Time Observer</span>
+    </div>
+</header>
+
+<div class="container" id="main-container">
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default" >
+            <div class="panel-heading">
+              	<h2>DEMO</h2>
+            </div>
+            <div class="panel-body">
+	           <p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/Mu7lJzT8uws" frameborder="0" allowfullscreen></iframe></p>
+            </div>
+         </div>
+	</div>
+</div>
+</div>
+
+<div class="container" id="main-container">
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default" >
+            <div class="panel-heading">
+              	<h2>Application' Statistics</h2>
+            </div>
+            <div class="panel-body">
+	            <h2>
+	              <strong><a href="@{Rules.index}"> Defined Rules: ${noOfRules}</a></strong>
+	            </h2>
+	            <h2>
+	              <strong><a href="@{ObservedAlarms.index}"> Detected Alarms: ${noOfAlarms}</a></strong>
+	            </h2>
+            </div>
+         </div>
+	</div>
+</div>
+
+</div>

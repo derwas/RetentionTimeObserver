@@ -1,0 +1,52 @@
+#{extends 'main.html' /}
+#{set title:'Alarms' /}
+
+<header id="main">
+    <div class="container">
+        <div class="navbar pull-right">
+            <ul class="nav navbar-nav">
+                <li><a href="@{Application.index}">Home</a></li>
+                <li><a href="@{Rules.index}">Rules</a></li>
+                <li><a href="@{ObservedAlarms.index}">Alarms</a></li>
+                <li><a href="@{Security.logout()}">Logout</a></li>
+            </ul>
+        </div>
+          <span class="second-name">Retention Time Observer</span>
+    </div>
+</header>
+
+
+<div class="container">
+<div class="container">
+<div class="module-content box">
+
+  <header>
+  	<h2>Active Sensors&nbsp;
+                    <span class="label label-default">${allSensors.size()}</span>
+    </h2>
+    <p>
+        The following list shows all the active sensors.
+      </p>
+      
+  </header>
+            <table class="table table-striped table-condensed">
+                <thead>
+                <tr>
+                	<th>Id</th>
+                    <th>Reading value</th>
+                    <th>Time</th>
+                </tr>
+                </thead>
+                <tbody>
+                #{list items:allSensors, as:'sensor'}
+                <tr>
+                	<td>${sensor.sensorID}</td>
+                    <td>${sensor.reading}</td>
+                    <td>${sensor.lastTimeAsDate}</td>
+                </tr>
+                #{/list}
+                </tbody>
+            </table>
+    </div>
+</div>
+</div>

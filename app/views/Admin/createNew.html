@@ -1,0 +1,155 @@
+#{extends 'main.html' /}
+#{set title:'Create New Rule' /}
+<header id="main">
+    <div class="container">
+        <div class="navbar pull-right">
+            <ul class="nav navbar-nav">
+                <li><a href="@{Application.index}">Home</a></li>
+                <li class="active"><a href="@{Rules.index}">Rules</a></li>
+                <li><a href="@{ObservedAlarms.index}">Alarms</a></li>
+                <li><a href="@{Security.logout()}">Logout</a></li>
+            </ul>
+        </div>
+          <span class="second-name">Retention Time Observer</span>
+    </div>
+</header>
+
+
+<div class="container">
+<form action="@{Admin.save()}" method="post" accept-charset="utf-8" enctype="multipart/form-data" >
+
+<div class="container">
+<div class="module-content box">
+
+  <header>
+  	<h2>Add a new Retention Rate Observation Rule
+    </h2>
+    <p>
+        Fill in the following form in order to create a retention rate observation rule.
+      </p>
+      <div class="panel-body">
+                <div class="btn-group-xs pull-right">
+                    <a type="button" class="btn btn-primary" href="@{Rules.index()}">Cancel</a>
+                </div>
+       </div>
+  </header>
+  
+
+
+            <table class="table table-striped table-condensed">
+<tr>
+      <td> <label for="name"> Retention Rate Observation Rule Name </label>
+    </td>
+      <td><input id="name" class="" type="text" name="name" value="" size="50" /> </td>
+</tr>
+               
+  
+<tr>
+		<td colspan="2">
+		Create an alarm when the volume (litres) is less than <input id="minVolume" class="" type="text" name="minVolume" value="" width="6" />, recorded by the sensor <input id="sensorID" class="" type="text" name="sensorID" value="" width="10" /> in a period of 
+		<select id="pDays" name="pDays" >
+<script>
+var i=0,max=15;
+for (; i<max; i++)
+{
+document.write("<option value="+i+">"+i+"</option>");
+}
+</script>
+</select> days(s),
+		<select id="pHours" name="pHours">
+<script>
+var i=0,max=24;
+for (; i<max; i++)
+{
+document.write("<option value="+i+">"+i+"</option>");
+}
+</script>
+</select> hour(s) and <select id="pMinutes" name="pMinutes">
+<script>
+var i=0,max=59;
+for (; i<max; i++)
+{
+document.write("<option value="+i+">"+i+"</option>");
+}
+</script>
+</select> minute(s)
+<div id="unit" style="display: inline"></div>.
+
+      </td>
+</tr>
+<tr>
+<td>Please specify the location of this sensor:</td>
+<td><input id="location" class="" type="text" name="location" value="" size="50" /></td>
+</tr>
+<tr><td colspan="2">
+This alarm expires after 
+		<select id="eDays" name="eDays">
+<script>
+var i=0,max=15;
+for (; i<max; i++)
+{
+document.write("<option value="+i+">"+i+"</option>");
+}
+</script>
+</select> days(s),
+<select id="eHours" name="eHours">
+<script>
+var i=0,max=24;
+for (; i<max; i++)
+{
+document.write("<option value="+i+">"+i+"</option>");
+}
+</script>
+</select> hour(s) and <select id="eMinutes" name="eMinutes">
+<script>
+var i=0,max=59;
+for (; i<max; i++)
+{
+document.write("<option value="+i+">"+i+"</option>");
+}
+</script>
+</select>minute(s).</td></tr>
+
+            </table>
+
+    </div>
+</div>
+
+
+<div class="container">
+<div class="module-content box">
+
+  <header>
+  	<h2>Add a related Action that user need to do for removing this alert
+    </h2>
+    <p>
+        Please indicate the recommended action to resolve any alarm associated to the pre-mentioned rule.
+      </p>
+
+  </header>
+
+ <table class="table table-striped table-condensed">
+<tr>
+      <td colspan="2">
+<textarea rows="3" cols="80" id="action" name="action">
+</textarea>	
+	</td>
+</tr>   
+ 
+         
+               
+<tr>
+
+      <td colspan="2">
+			<div class="btn-group-xs pull-right">
+              <input type="submit" name="_save" value="Save" class="btn btn-primary"/>
+ 			</div>            
+       </td>
+</tr>
+               
+</table>
+
+</div>
+</div>
+</form>
+</div>

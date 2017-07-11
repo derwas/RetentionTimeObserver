@@ -1,0 +1,33 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                                       Application.index
+GET     /about                                  Admin.about
+
+# Retention Alarms
+GET     /ObservedAlarms                ObservedAlarms.index
+GET     /ObservedAlarms/resolvedAlarms                ObservedAlarms.resolvedAlarms
+GET     /ObservedAlarms/expiredAlarms               ObservedAlarms.expiredAlarms
+
+# Retention Rate Rules
+GET     /Rules                           Rules.index
+GET     /Rules/createNew                 Admin.createNew
+POST    /Rules/save                     Admin.save
+
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
+#*       /Sensors/updateSensors                  Sensors.updateSensors
+
+
+# Catch all
+*       /{controller}/{action}                  {controller}.{action}
+
+# Import Secure routes
+*       /                                       module:secure
